@@ -2,28 +2,36 @@
 <div class="container my-3">
     <!--Add product form-->
 
-    <div class="card">
-        <div class="card-header text-white bg-primary">
+    <div class="card w-75 align-middle border-dark">
+        <div class="card-header text-white text-center bg-primary">
              <h3>Book Movie</h3>
         </div>
-        <div class="card-body">
-            <form #myForm = 'ngForm' (ngSubmit) ="submitted(myForm)">
-            <label class="form-label">Customer Name</label>
-            <input type="text" name="custName" ngModel class="form-control"  required>
-        
-            <label class="form-label">mobile number</label>
-            <input type="tel" name="mobileNumber" ngModel class="form-control"  required>
-        
-            <label class="form-label">No Of Tickets</label>
-            <input type="number" name="tickets" ngModel max="4" class="form-control"  required>
+        <div class="card-body bg-secondary">
+            <form class="" [formGroup]="bookingForm" (ngSubmit)="submitted(bookingForm)">
 
-            <br><input type="submit" value = "Book" class="btn btn-warning mx-3">
-            <input type="button" value = "Booking details" class="btn btn-primary mx-3">
-      </form>
+                <div>
+                     <label class="form-label"><b>Customer Name</b></label>
+                    <input type="text" formControlName="customerName"  class="form-control"  >
+                </div>
+               
+                <div>
+                    <label class="form-label"><b>Mobile number</b></label>
+                    <input type="tel" formControlName="mobileNumber"  class="form-control"  >
+                </div>
+                
+                <div>
+                   <label class="form-label"><b>No Of Tickets</b></label>
+                    <input type="number" formControlName="noOfTickets"   class="form-control"  > 
+                </div>
+                
+
+                <br><input type="submit" value = "Book" class="btn btn-warning mx-3">
+                <input type="button" value = "Booking details" class="btn btn-primary mx-3" (click)="navigate()">
+            </form>
         </div>
 
-        <div class="card-footer">
-            <p *ngIf="successMessage ;else error" class="text-success">{{successMessage}}</p>
+        <div class="card-footer bg-primary-subtle">
+            <p *ngIf ="successMessage ;else error" class="text-success">{{successMessage}}</p>
             <ng-template #error>
                 <p class="text-danger">{{errorMessage}}</p>
             </ng-template>
