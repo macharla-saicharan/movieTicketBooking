@@ -1,0 +1,99 @@
+<div class="container backgrnd">
+
+
+        <div class="row">
+          <div class="col">
+          
+            <!-- <div *ngFor="let movie of movies">
+        <div class="card" style="width: 18rem;">
+        <img src="./assets/movie_logo.jpg" class="card-img-top" alt="logo">
+        <div class="card-body">
+          <h5 class="card-title">{{movie.movieName}}</h5>
+          <p>Genre:{{movie.genres}}</p>
+          <a  class="btn btn-primary">Book now</a>
+        </div>
+      </div>
+    </div> -->
+            <div>
+        <div class="card" style="width: 18rem;">
+        <img src="./assets/movie_logo.jpg" class="card-img-top" alt="logo">
+        <div class="card-body">
+          <h5 class="card-title">{{movies[0].movieName}}</h5>
+          <p>Genre:{{movies[0].genres}}</p>
+          <a  class="btn btn-primary" (click)="booking()">Book now</a>
+        </div>
+      </div>
+    </div>
+            
+            
+          </div>
+
+          <div class="col">
+            <div>
+        <div class="card" style="width: 18rem;">
+        <img src="./assets/movie_logo.jpg" class="card-img-top" alt="logo">
+        <div class="card-body">
+          <h5 class="card-title">{{movies[1].movieName}}</h5>
+          <p>Genre:{{movies[1].genres}}</p>
+          <a  class="btn btn-primary" (click)="booking()">Book now</a>
+        </div>
+      </div>
+    </div>
+
+          </div>
+
+          <div class="col">
+            <div>
+                <div class="card" style="width: 18rem;">
+                    <img src="./assets/movie_logo.jpg" class="card-img-top" alt="logo">
+                    <div class="card-body">
+                        <h5 class="card-title">{{movies[2].movieName}}</h5>
+                        <p>Genre:{{movies[2].genres}}</p>
+                        <a class="btn btn-primary">Book now</a>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="col">
+            <div>
+                <div class="card" style="width: 18rem;">
+                    <img src="./assets/movie_logo.jpg" class="card-img-top" alt="logo">
+                    <div class="card-body">
+                        <h5 class="card-title">{{movies[3].movieName}}</h5>
+                        <p>Genre:{{movies[3].genres}}</p>
+                        <a class="btn btn-primary">Book now</a>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="col">
+            <div>
+                <div class="card" style="width: 18rem;">
+                    <img src="./assets/movie_logo.jpg" class="card-img-top" alt="logo">
+                    <div class="card-body">
+                        <h5 class="card-title">{{movies[4].movieName}}</h5>
+                        <p>Genre:{{movies[4].genres}}</p>
+                        <a class="btn btn-primary" (click)="booking()">Book now</a>
+                    </div>
+                </div>
+            </div>
+          </div>
+          <div class="col">
+            <div>
+                <div class="card" style="width: 18rem;">
+                    <img src="./assets/movie_logo.jpg" class="card-img-top" alt="logo">
+                    <div class="card-body">
+                        <h5 class="card-title">{{movies[5].movieName}}</h5>
+                        <p>Genre:{{movies[5].genres}}</p>
+                        <a class="btn btn-primary" (click)="booking()">Book now</a>
+                    </div>
+                </div>
+            </div>
+          </div>
+          
+        </div>
+      
+
+    
+    
+</div>

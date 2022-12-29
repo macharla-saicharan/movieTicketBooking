@@ -1,0 +1,38 @@
+
+<div class="container my-3">
+    <!--Add product form-->
+
+    <div class="card">
+        <div class="card-header text-white bg-primary">
+             <h3>Book Movie</h3>
+        </div>
+        <div class="card-body">
+            <form #myForm = 'ngForm' (ngSubmit) ="submitted(myForm)">
+            <label class="form-label">Customer Name</label>
+            <input type="text" name="custName" ngModel class="form-control"  required>
+        
+            <label class="form-label">mobile number</label>
+            <input type="tel" name="mobileNumber" ngModel class="form-control"  required>
+        
+            <label class="form-label">No Of Tickets</label>
+            <input type="number" name="tickets" ngModel max="4" class="form-control"  required>
+
+            <br><input type="submit" value = "Book" class="btn btn-warning mx-3">
+            <input type="button" value = "Booking details" class="btn btn-primary mx-3">
+      </form>
+        </div>
+
+        <div class="card-footer">
+            <p *ngIf="successMessage ;else error" class="text-success">{{successMessage}}</p>
+            <ng-template #error>
+                <p class="text-danger">{{errorMessage}}</p>
+            </ng-template>
+        </div>
+    </div>
+    <!-- <div class="form-area">
+     
+      
+
+      <div class="container">
+      </div>
+    </div> -->
