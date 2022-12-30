@@ -15,13 +15,17 @@ export class BookingFormComponent implements OnInit {
   successMessage!:string;
   errorMessage!:string;
 
+  validBooking : boolean = true;
+
+
   bookingForm! : FormGroup;
 
-  mobPattern = /^[0-9]{10}$/g
+  namePattern = /^[a-zA-z]{3,}/g;
+  mobPattern = /^[0-9]{10}$/g;
 
   ngOnInit(): void {
     this.bookingForm = this.fb.group({
-      customerName : ['', {updateOn : 'blur', validators : [Validators.required]}],
+      customerName : ['', {updateOn : 'blur', validators : [Validators.required,Validators.pattern(this.namePattern)]}],
       mobileNumber : ['', [Validators.required, Validators.pattern(this.mobPattern)]],
       noOfTickets :  ['', [Validators.required,Validators.max(4)]]
     })

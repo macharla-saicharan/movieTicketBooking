@@ -2,38 +2,57 @@
 <div class="container my-3">
     <!--Add product form-->
 
-    <div class="card w-75 align-middle border-dark">
+    <div class="card w-75 border-dark">
         <div class="card-header text-white text-center bg-primary">
              <h3>Book Movie</h3>
         </div>
-        <div class="card-body bg-secondary">
+        <div class="card-body bg-primary-subtle">
             <form class="" [formGroup]="bookingForm" (ngSubmit)="submitted(bookingForm)">
 
                 <div>
-                     <label class="form-label"><b>Customer Name</b></label>
+                    <label class="form-label"><b>Customer Name</b></label>
                     <input type="text" formControlName="customerName"  class="form-control"  >
+
+                    <div *ngIf="bookingForm.controls['customerName'].touched">
+                        <small *ngIf="bookingForm.controls['customerName']?.errors?.['required']"
+                            class="text-danger fw-bolder">Enter a name</small>
+                        <small *ngIf="bookingForm.controls['customerName']?.errors?.['pattern']"
+                            class="text-danger fw-bolder">Name must must contain atleat 3 letters and only alphabets</small>
+                    </div>
                 </div>
                
                 <div>
                     <label class="form-label"><b>Mobile number</b></label>
-                    <input type="tel" formControlName="mobileNumber"  class="form-control"  >
+                    <input type="tel" formControlName="mobileNumber"  class="form-control">
+                    <div *ngIf="bookingForm.controls['mobileNumber'].touched">
+                        <small *ngIf="bookingForm.controls['mobileNumber']?.errors?.['required']"
+                            class="text-danger fw-bolder">Enter a mobile number</small>
+                        <small *ngIf="bookingForm.controls['customerName']?.errors?.['pattern']"
+                            class="text-danger fw-bolder" >Enter a valid number</small>
+                    </div>
                 </div>
                 
                 <div>
                    <label class="form-label"><b>No Of Tickets</b></label>
-                    <input type="number" formControlName="noOfTickets"   class="form-control"  > 
+                    <input type="number" formControlName="noOfTickets"   class="form-control"> 
+                    <div *ngIf="bookingForm.controls['noOfTickets'].touched">
+                        <small *ngIf="bookingForm.controls['noOfTickets']?.errors?.['required']" 
+                            class="text-danger fw-bolder">Enter a number</small>
+                        <small *ngIf="bookingForm.controls['noOfTickets']?.errors?.['max']"
+                            class="text-danger fw-bolder">Max 4 tickets can booked</small>
+                    </div>
                 </div>
                 
 
-                <br><input type="submit" value = "Book" class="btn btn-warning mx-3">
+                <br><input type="submit" value="Book" class="btn btn-warning mx-3" [disabled]="bookingForm.invalid">
                 <input type="button" value = "Booking details" class="btn btn-primary mx-3" (click)="navigate()">
             </form>
         </div>
 
-        <div class="card-footer bg-primary-subtle">
-            <p *ngIf ="successMessage ;else error" class="text-success">{{successMessage}}</p>
+        <div class="card-footer bg-warning">
+            <p *ngIf ="successMessage ;else error" class="text-success fw-bolder">{{successMessage}}</p>
             <ng-template #error>
-                <p class="text-danger">{{errorMessage}}</p>
+                <p class="text-danger fw-bolder">{{errorMessage}}</p>
             </ng-template>
         </div>
     </div>
