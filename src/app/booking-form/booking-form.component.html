@@ -12,7 +12,7 @@
                 <div>
                     <label class="form-label"><b>Customer Name</b></label>
                     <input type="text" formControlName="customerName"  class="form-control"  >
-
+                    
                     <div *ngIf="bookingForm.controls['customerName'].touched">
                         <small *ngIf="bookingForm.controls['customerName']?.errors?.['required']"
                             class="text-danger fw-bolder">Enter a name</small>
