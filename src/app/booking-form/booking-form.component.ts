@@ -1,3 +1,4 @@
+import { NgClass } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit , ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
@@ -16,9 +17,14 @@ export class BookingFormComponent implements OnInit {
   errorMessage!:string;
 
   validBooking : boolean = true;
+  seatsSelection:boolean = true;
 
 
   bookingForm! : FormGroup;
+
+  seatsDiv : boolean = false;
+  classNames!:string;
+  count:number = 0;
 
   namePattern = /^[a-zA-z]{3,}/g;
   mobPattern = /^[0-9]{10}$/g;
@@ -46,6 +52,7 @@ export class BookingFormComponent implements OnInit {
         console.log(data);
         this.successMessage = 'Your booking is successfully completed';
         this.errorMessage = '';
+        this.bookingForm.reset();
       },
       error:(err)=>{
         console.log(err);
@@ -59,6 +66,33 @@ export class BookingFormComponent implements OnInit {
   // navigating programatically to the booking details component
     navigate():void {
       this.router.navigate(['/booking'])
+    }
+
+    showSeats() {
+      this.seatsDiv = true;
+    }
+
+
+    seatColor(e:any){
+      console.log(this.bookingForm.controls['noOfTickets'].value)
+      console.log('count --'+this.count);
+      
+      if(this.bookingForm.controls['noOfTickets'].value > this.count) {
+              e.target.className = 'seat selected';
+              this.count++;
+              if(this.bookingForm.controls['noOfTickets'].value == this.count) {
+                     this.seatsSelection = false;
+ 
+              }
+
+      }
+      console.log(e.target.className);
+      
+    }
+
+    bookingBtn(){
+      this.seatsDiv = false;
+      // this.bookingForm.reset();
     }
 
 }

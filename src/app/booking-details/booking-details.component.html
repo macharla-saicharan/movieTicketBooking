@@ -1,1 +1,18 @@
-<p>booking-details works!</p>
+<div class="container my-3">
+    <table class="table table-bordered">
+        <thead class="table-primary">
+            <tr>
+                <th>Name</th>
+                <th>Contact number</th>
+                <th>No of Seats</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let x of allProducts; index as i">
+                <td>{{allProducts[i].customerName}}</td>
+                <td>{{allProducts[i].mobileNumber}}</td>
+                <td>{{allProducts[i].noOfTickets}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

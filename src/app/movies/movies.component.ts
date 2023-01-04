@@ -19,7 +19,9 @@ export class MoviesComponent implements OnInit {
       console.log(this.oneMovie);
     }
 
-    booking(){
+    booking(val:string){
       this.router.navigate(['/bookingForm']);
+      console.log(val);
+      
     }
 }
